@@ -37,6 +37,19 @@ pipeline {
                 }
             }
         }
+
+        stage('Integrate Jenkins with EKS Cluster and Deploy App') {
+            steps {
+                 withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'K8S', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
+                  script {
+                    sh 'ls -la'
+                    sh "kubectl apply -f Deployment.yaml"
+
+                  }
+
+                }
+             }
+        }
         
     }
 }
