@@ -16,6 +16,8 @@ pipeline {
                 sh 'pwd'
                 sh 'ls -la'
                 sh 'npm install'
+                sh 'npm build'
+                sh 'ls -la'
             }
 
         }
