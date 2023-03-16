@@ -16,10 +16,14 @@ pipeline {
                 sh 'pwd'
                 sh 'ls -la'
                 sh 'npm install'
-                sh 'pwd'
-                sh 'ls -la'
             }
 
+        }
+
+        stage('Docker Image Build') {
+            steps {
+                sh 'docker build -t test-ecr .'
+            }
         }
         
     }
