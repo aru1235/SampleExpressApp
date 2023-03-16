@@ -31,7 +31,7 @@ spec:
     app: my-app
   type: NodePort
   ports:
-  - port: 80
-    targetPort: 80
+  - port: 3000
+    targetPort: 3000
     nodePort: 32140
     protocol: TCP
