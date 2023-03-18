@@ -24,7 +24,7 @@ pipeline {
 
         stage('Docker Image Build') {
             steps {
-                sh 'docker build -t test-ecr .'
+                sh 'docker build -t off-ecr .'
             }
         }
 
@@ -32,8 +32,8 @@ pipeline {
             steps {
                 withAWS(credentials: 'aws-credentials', region: 'ap-south-1') {
                     sh 'aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/y0j0v8z3'
-                    sh 'docker tag test-ecr:latest public.ecr.aws/y0j0v8z3/test-ecr:feature'
-                    sh 'docker push public.ecr.aws/y0j0v8z3/test-ecr:feature'
+                    sh 'docker tag off-ecr:latest 398443246513.dkr.ecr.ap-south-1.amazonaws.com/off-ecr:latest'
+                    sh 'docker push 398443246513.dkr.ecr.ap-south-1.amazonaws.com/off-ecr:latest'
                 }
             }
         }
