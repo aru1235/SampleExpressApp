@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: node-app
-        image: public.ecr.aws/y0j0v8z3/test-ecr:feature
+        image: 398443246513.dkr.ecr.ap-south-1.amazonaws.com/off-ecr:latest
         ports:
         - containerPort: 80
 
